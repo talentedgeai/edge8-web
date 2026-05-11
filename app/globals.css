@@ -204,6 +204,14 @@ nav {
   transition: var(--transition);
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 16px;
+}
 .nav-links > li:hover .dropdown,
 .nav-links > li.open .dropdown {
   opacity: 1;
