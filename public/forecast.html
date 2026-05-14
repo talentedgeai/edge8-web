@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
+<title>Talent Edge LLC — 2026 Forecast</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf3 100%);
+    color: #1a2332;
+    min-height: 100vh;
+    padding: 32px 24px;
+    line-height: 1.5;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  header {
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #d8dee9;
+  }
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #0a1628;
+    margin-bottom: 8px;
+  }
+  header p {
+    font-size: 15px;
+    color: #5a6478;
+  }
+  header .timestamp {
+    font-size: 13px;
+    color: #8892a6;
+    margin-top: 6px;
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 22px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+    border: 1px solid #eef0f4;
+  }
+  .card .label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6b7587;
+    margin-bottom: 8px;
+  }
+  .card .value {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0a1628;
+    letter-spacing: -0.01em;
+  }
+  .card .sublabel {
+    font-size: 12px;
+    color: #8892a6;
+    margin-top: 4px;
+  }
+  .card.aggressive { border-left: 3px solid #2563eb; }
+  .card.conservative { border-left: 3px solid #ea580c; }
+  .card.actual { border-left: 3px solid #16a34a; }
+  .chart-card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px 28px 28px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+    border: 1px solid #eef0f4;
+    margin-bottom: 24px;
+  }
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 18px;
+  }
+  .chart-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0a1628;
+    letter-spacing: -0.01em;
+  }
+  .chart-header .subtitle {
+    font-size: 13px;
+    color: #8892a6;
+  }
+  .chart-container {
+    position: relative;
+    height: 380px;
+  }
+  .chart-container.tall { height: 420px; }
+  .legend-note {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    font-size: 12px;
+    color: #5a6478;
+  }
+  .legend-note .item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend-note .dash {
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: #5a6478;
+  }
+  .legend-note .dash.dashed {
+    background: repeating-linear-gradient(to right, #5a6478 0 4px, transparent 4px 8px);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 10px 12px;
+    text-align: right;
+    border-bottom: 1px solid #eef0f4;
+  }
+  th:first-child, td:first-child { text-align: left; }
+  thead th {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #4a5468;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  tbody tr.actual td { color: #16a34a; font-weight: 500; }
+  tbody tr.forecast td { color: #1a2332; }
+  tbody tr.totals {
+    background: #f8fafc;
+    font-weight: 700;
+  }
+  tbody tr.totals td { border-top: 2px solid #1a2332; }
+  .footnote {
+    margin-top: 32px;
+    padding: 20px 24px;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #78350f;
+  }
+  .footnote h3 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #92400e;
+  }
+  .footnote ul { padding-left: 18px; }
+  .footnote li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Talent Edge LLC — 2026 Forecast</h1>
+    <p>Revenue, expenses, and net income — actuals through May, scenarios through year-end.</p>
+    <p class="timestamp">Generated 2026-05-14 · Accrual basis · USD</p>
+  </header>
+
+  <div class="summary-grid">
+    <div class="card actual">
+      <div class="label">YTD Revenue (Jan–May est.)</div>
+      <div class="value">$378K</div>
+      <div class="sublabel">Q1 actual + Apr/May projected</div>
+    </div>
+    <div class="card aggressive">
+      <div class="label">Aggressive YE Total Revenue</div>
+      <div class="value">$1.52M</div>
+      <div class="sublabel">15% MoM growth holds</div>
+    </div>
+    <div class="card conservative">
+      <div class="label">Conservative YE Total Revenue</div>
+      <div class="value">$888K</div>
+      <div class="sublabel">Reverts to Q1 baseline + 3% growth</div>
+    </div>
+    <div class="card aggressive">
+      <div class="label">Aggressive Net Income</div>
+      <div class="value">$598K</div>
+      <div class="sublabel">Full year (post-reduction)</div>
+    </div>
+    <div class="card conservative">
+      <div class="label">Conservative Net Income</div>
+      <div class="value">$262K</div>
+      <div class="sublabel">Full year (post-reduction)</div>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-header">
+      <h2>Monthly Revenue — Actuals & Forecast</h2>
+      <div class="subtitle">Jan 2026 → Dec 2026</div>
+    </div>
+    <div class="chart-container tall">
+      <canvas id="revenueChart"></canvas>
+    </div>
+    <div class="legend-note">
+      <span class="item"><span class="dash"></span> Solid = actuals/booked</span>
+      <span class="item"><span class="dash dashed"></span> Dashed = forecast</span>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-header">
+      <h2>Monthly Net Income — Three Scenarios</h2>
+      <div class="subtitle">Operating income before other income/JE adjustments</div>
+    </div>
+    <div class="chart-container tall">
+      <canvas id="netIncomeChart"></canvas>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-header">
+      <h2>Cumulative Net Income — Path to Year-End</h2>
+      <div class="subtitle">Compounding effect of growth/expense assumptions</div>
+    </div>
+    <div class="chart-container">
+      <canvas id="cumulativeChart"></canvas>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-header">
+      <h2>Monthly Detail</h2>
+      <div class="subtitle">Revenue / Expenses / Net by scenario</div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Revenue</th>
+          <th>Expenses</th>
+          <th>Net Income</th>
+          <th>Margin</th>
+          <th>Scenario</th>
+        </tr>
+      </thead>
+      <tbody id="detailTable"></tbody>
+    </table>
+  </div>
+
+  <div class="footnote">
+    <h3>Methodology & Caveats</h3>
+    <ul>
+      <li><strong>Q1 baseline:</strong> $66,790/mo revenue, $67,495/mo expenses → essentially breakeven.</li>
+      <li><strong>Expense model:</strong> 27.5% reduction (midpoint of your 25–30% estimate) applied as fixed $17.5K/mo + 47% of revenue variable (driven by contractor costs scaling with staffing revenue).</li>
+      <li><strong>Aggressive scenario:</strong> 15% MoM revenue growth from May $90K → Dec $239K. Operating leverage as fixed costs spread.</li>
+      <li><strong>Conservative scenario:</strong> Revenue mean-reverts to Q1 baseline by August, then grows 3% MoM.</li>
+      <li><strong>Not modeled:</strong> Other Income line ($8K April, $4K May post-JE) — would add $30–50K full year. AI Program build cost restart would add $15–20K/mo to expenses.</li>
+      <li><strong>April/May expenses are estimated</strong> — actuals are missing pending new bookkeeper catch-up.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  // Actuals (Jan-Mar booked, Apr-May revenue booked + expenses projected)
+  const actualRevenue = [60287, 63640, 76444, 77796, 90000, null, null, null, null, null, null, null];
+  const actualExpenses = [65291, 68019, 69177, 57371, 57371, null, null, null, null, null, null, null];
+  const actualNet = [-5004, -4379, 7267, 20425, 32629, null, null, null, null, null, null, null];
+
+  // Aggressive forecast (Jun-Dec) — 15% MoM growth, expenses scale at 47% + $17.5K fixed
+  const aggRevenue = [null, null, null, null, 90000, 103500, 119025, 136879, 157411, 181023, 208176, 239402];
+  const aggExpenses = [null, null, null, null, 59800, 66145, 73442, 81833, 91483, 102581, 115343, 130019];
+  const aggNet = [null, null, null, null, 30200, 37355, 45583, 55046, 65927, 78442, 92833, 109383];
+
+  // Conservative forecast (Jun-Dec) — mean reversion to $67K, then 3% MoM
+  const conRevenue = [null, null, null, null, 90000, 82000, 74000, 67000, 69010, 71080, 73213, 75409];
+  const conExpenses = [null, null, null, null, 59800, 56040, 52280, 48990, 49935, 50908, 51910, 52942];
+  const conNet = [null, null, null, null, 30200, 25960, 21720, 18010, 19075, 20172, 21303, 22467];
+
+  // Cumulative net income
+  function cumulative(arr) {
+    let sum = 0;
+    return arr.map(v => {
+      if (v === null) return null;
+      sum += v;
+      return sum;
+    });
+  }
+  const cumActual = cumulative(actualNet);
+  const cumAgg = (() => {
+    let sum = cumActual[3]; // Apr cumulative (last full actual before forecast branches)
+    return aggNet.map((v, i) => {
+      if (v === null) return cumActual[i];
+      if (i === 4) return cumActual[3] + v; // May
+      sum = (i === 5) ? cumActual[4] + v : sum + v;
+      return sum;
+    });
+  })();
+  const cumCon = (() => {
+    let sum = cumActual[3];
+    return conNet.map((v, i) => {
+      if (v === null) return cumActual[i];
+      if (i === 4) return cumActual[3] + v; // May
+      sum = (i === 5) ? cumActual[4] + v : sum + v;
+      return sum;
+    });
+  })();
+
+  const fmt = v => v === null ? '' : '$' + (v / 1000).toFixed(0) + 'K';
+  const fmtFull = v => v === null ? '' : '$' + v.toLocaleString('en-US', { maximumFractionDigits: 0 });
+
+  const commonOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: { padding: 18, font: { size: 12, family: '-apple-system, BlinkMacSystemFont, sans-serif' } }
+      },
+      tooltip: {
+        backgroundColor: '#0a1628',
+        titleFont: { size: 13, weight: 600 },
+        bodyFont: { size: 12 },
+        padding: 12,
+        cornerRadius: 8,
+        callbacks: {
+          label: ctx => `${ctx.dataset.label}: ${fmtFull(ctx.parsed.y)}`
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: { color: '#5a6478', font: { size: 12 } }
+      },
+      y: {
+        grid: { color: '#eef0f4' },
+        ticks: {
+          color: '#5a6478',
+          font: { size: 12 },
+          callback: fmt
+        }
+      }
+    }
+  };
+
+  // Revenue chart
+  new Chart(document.getElementById('revenueChart'), {
+    type: 'line',
+    data: {
+      labels: months,
+      datasets: [
+        {
+          label: 'Revenue — Actual/Booked',
+          data: actualRevenue,
+          borderColor: '#16a34a',
+          backgroundColor: 'rgba(22, 163, 74, 0.08)',
+          borderWidth: 3,
+          tension: 0.3,
+          pointRadius: 5,
+          pointBackgroundColor: '#16a34a',
+          fill: false,
+          spanGaps: false
+        },
+        {
+          label: 'Aggressive — 15% MoM',
+          data: aggRevenue,
+          borderColor: '#2563eb',
+          backgroundColor: 'rgba(37, 99, 235, 0.05)',
+          borderWidth: 2.5,
+          borderDash: [6, 4],
+          tension: 0.3,
+          pointRadius: 4,
+          pointBackgroundColor: '#2563eb',
+          fill: false
+        },
+        {
+          label: 'Conservative — mean revert + 3%',
+          data: conRevenue,
+          borderColor: '#ea580c',
+          backgroundColor: 'rgba(234, 88, 12, 0.05)',
+          borderWidth: 2.5,
+          borderDash: [6, 4],
+          tension: 0.3,
+          pointRadius: 4,
+          pointBackgroundColor: '#ea580c',
+          fill: false
+        }
+      ]
+    },
+    options: commonOptions
+  });
+
+  // Net income chart
+  new Chart(document.getElementById('netIncomeChart'), {
+    type: 'bar',
+    data: {
+      labels: months,
+      datasets: [
+        {
+          label: 'Actual/Booked',
+          data: actualNet,
+          backgroundColor: '#16a34a',
+          borderRadius: 4
+        },
+        {
+          label: 'Aggressive',
+          data: aggNet.map((v, i) => i < 5 ? null : v),
+          backgroundColor: '#2563eb',
+          borderRadius: 4
+        },
+        {
+          label: 'Conservative',
+          data: conNet.map((v, i) => i < 5 ? null : v),
+          backgroundColor: '#ea580c',
+          borderRadius: 4
+        }
+      ]
+    },
+    options: commonOptions
+  });
+
+  // Cumulative chart
+  new Chart(document.getElementById('cumulativeChart'), {
+    type: 'line',
+    data: {
+      labels: months,
+      datasets: [
+        {
+          label: 'Cumulative — Aggressive',
+          data: cumAgg,
+          borderColor: '#2563eb',
+          backgroundColor: 'rgba(37, 99, 235, 0.12)',
+          borderWidth: 2.5,
+          tension: 0.3,
+          pointRadius: 3,
+          fill: true
+        },
+        {
+          label: 'Cumulative — Conservative',
+          data: cumCon,
+          borderColor: '#ea580c',
+          backgroundColor: 'rgba(234, 88, 12, 0.10)',
+          borderWidth: 2.5,
+          tension: 0.3,
+          pointRadius: 3,
+          fill: true
+        }
+      ]
+    },
+    options: commonOptions
+  });
+
+  // Detail table
+  const rows = [];
+  for (let i = 0; i < 12; i++) {
+    const month = months[i];
+    if (i < 3) {
+      // Q1 actuals
+      const rev = actualRevenue[i], exp = actualExpenses[i], net = actualNet[i];
+      const margin = ((net / rev) * 100).toFixed(0) + '%';
+      rows.push(`<tr class="actual"><td>${month}</td><td>${fmtFull(rev)}</td><td>${fmtFull(exp)}</td><td>${fmtFull(net)}</td><td>${margin}</td><td>Actual</td></tr>`);
+    } else if (i < 5) {
+      // Apr/May — revenue actual, expenses projected
+      const rev = actualRevenue[i], exp = actualExpenses[i], net = actualNet[i];
+      const margin = ((net / rev) * 100).toFixed(0) + '%';
+      rows.push(`<tr class="forecast"><td>${month}</td><td>${fmtFull(rev)}</td><td>${fmtFull(exp)}</td><td>${fmtFull(net)}</td><td>${margin}</td><td>Rev actual / Exp projected</td></tr>`);
+    } else {
+      // Jun-Dec — both scenarios
+      const aRev = aggRevenue[i], aExp = aggExpenses[i], aNet = aggNet[i];
+      const cRev = conRevenue[i], cExp = conExpenses[i], cNet = conNet[i];
+      rows.push(`<tr class="forecast"><td>${month}</td><td>${fmtFull(aRev)}</td><td>${fmtFull(aExp)}</td><td>${fmtFull(aNet)}</td><td>${((aNet/aRev)*100).toFixed(0)}%</td><td>Aggressive</td></tr>`);
+      rows.push(`<tr class="forecast"><td>${month}</td><td>${fmtFull(cRev)}</td><td>${fmtFull(cExp)}</td><td>${fmtFull(cNet)}</td><td>${((cNet/cRev)*100).toFixed(0)}%</td><td>Conservative</td></tr>`);
+    }
+  }
+  // Totals
+  const aggTotalRev = aggRevenue.slice(5).reduce((a, b) => a + (b || 0), 0) + actualRevenue.slice(0, 5).reduce((a, b) => a + (b || 0), 0);
+  const aggTotalExp = aggExpenses.slice(5).reduce((a, b) => a + (b || 0), 0) + actualExpenses.slice(0, 5).reduce((a, b) => a + (b || 0), 0);
+  const aggTotalNet = aggTotalRev - aggTotalExp;
+  const conTotalRev = conRevenue.slice(5).reduce((a, b) => a + (b || 0), 0) + actualRevenue.slice(0, 5).reduce((a, b) => a + (b || 0), 0);
+  const conTotalExp = conExpenses.slice(5).reduce((a, b) => a + (b || 0), 0) + actualExpenses.slice(0, 5).reduce((a, b) => a + (b || 0), 0);
+  const conTotalNet = conTotalRev - conTotalExp;
+  rows.push(`<tr class="totals"><td>FY Aggressive</td><td>${fmtFull(aggTotalRev)}</td><td>${fmtFull(aggTotalExp)}</td><td>${fmtFull(aggTotalNet)}</td><td>${((aggTotalNet/aggTotalRev)*100).toFixed(0)}%</td><td>—</td></tr>`);
+  rows.push(`<tr class="totals"><td>FY Conservative</td><td>${fmtFull(conTotalRev)}</td><td>${fmtFull(conTotalExp)}</td><td>${fmtFull(conTotalNet)}</td><td>${((conTotalNet/conTotalRev)*100).toFixed(0)}%</td><td>—</td></tr>`);
+  document.getElementById('detailTable').innerHTML = rows.join('');
+</script>
+</body>
+</html>
