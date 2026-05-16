@@ -104,8 +104,8 @@ export default function YourFirstAIHirePage() {
         <div className="container">
           <div className="svc-hero-inner">
             <div className="svc-hero-text">
-              <h1>Your First AI Hire — Done Right</h1>
-              <p className="svc-hero-sub">Stop guessing about AI. Get your first dedicated AI Officer in place within 30 days — and start seeing real results by Month 2.</p>
+              <h1>Your First AI Hire, Done Right</h1>
+              <p className="svc-hero-sub">Stop guessing about AI. Get your first dedicated AI Officer in place within 30 days, and start seeing real results by Month 2.</p>
               <a href="https://ai-officer.typeform.com/letstalk" className="btn btn-contact" target="_blank" rel="noopener noreferrer">Claim Your Spot Now →</a>
             </div>
             <div className="svc-hero-img">
@@ -161,13 +161,13 @@ export default function YourFirstAIHirePage() {
         <div className="container">
           <div className="reveal">
             <span className="section-label">The Solution</span>
-            <h2 className="section-title">Your Dedicated AI Officer — Without the $300K Mistake</h2>
+            <h2 className="section-title">Your Dedicated AI Officer, Without the $300K Mistake</h2>
           </div>
           <div className="timeline-steps" style={{ marginTop: 48 }}>
             {[
-              { month: 'Month 0', label: 'Free Discovery', title: 'AI Capabilities Audit', desc: 'We assess your current state, identify your biggest opportunities, and design a 90-day AI implementation roadmap.', cost: 'FREE' },
-              { month: 'Month 1', label: 'Phase 1', title: 'Foundation & First Win', desc: 'Your AI Officer joins the team. We identify your highest-ROI use case and implement your first AI program—fast.', cost: '$1,800' },
-              { month: 'Month 2–3', label: 'Phase 2', title: 'Scale & Systemize', desc: 'We expand the program, train your team, and build AI into your core workflows. You see measurable results.', cost: '$1,800/mo' },
+              { month: 'Month 1', label: 'Phase 1', title: 'Train & First Wins', desc: 'Your AI Officer joins the team, works alongside our AI engineers building real AI programs, and begins their AI Officer Certification in both Generative and Agentic AI. First wins ship this month.', cost: '$1,800' },
+              { month: 'Month 2', label: 'Phase 2', title: 'Collaborate', desc: 'Foundation established. AI Officer Certification continues. They start contributing as a collaborator, helping build AI programs for your company.', cost: '$1,800' },
+              { month: 'Month 3', label: 'Phase 3', title: 'Scale & Systemize', desc: 'AI Officer Certification complete. Programs scale across your workflows so your team operates more autonomously.', cost: '$1,800' },
             ].map((step, i) => (
               <div key={i} className="timeline-step">
                 <div className="timeline-left">
@@ -205,7 +205,7 @@ export default function YourFirstAIHirePage() {
               <div className="math-price" style={{ color: '#0aad7a' }}>$5,400</div>
               <div className="math-label">Edge8 AI Officer Program (3 months)</div>
               <ul style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 8, listStyle: 'none', padding: 0 }}>
-                {['Dedicated AI Officer on Day 1', 'First program live by Month 1', 'Full team training included', 'ROI guarantee', 'No long-term commitment'].map((item) => (
+                {['Dedicated AI Officer on Day 1', 'First program live by Month 1', 'AI Officer Certification (Generative + Agentic) included', 'Full team training included', 'ROI guarantee', 'No long-term commitment'].map((item) => (
                   <li key={item} style={{ display: 'flex', gap: 8, fontSize: 14, color: 'var(--grey-mid)', alignItems: 'flex-start' }}>
                     <span style={{ color: '#0aad7a', fontWeight: 500 }}>✓</span> {item}
                   </li>
