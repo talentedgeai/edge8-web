@@ -31,6 +31,17 @@ Ranked.
 4. **Lineage matters.** Microsoft + TINYpulse + Vinasource is the proof of operator credibility. Don't bury it.
 5. **Calm.** One Typeform CTA. No funnel jujitsu. The work sells the work.
 
+## How we work — team core values
+
+Source of truth for hiring, onboarding, performance, and team comms. Mirrored on the employee onboarding deck (`caio-coach/site/public/blueprints/team-onboarding.html`, Slide 4).
+
+1. **Leverage Intelligence.** Use AI to think smarter, work faster, and raise the quality of everything you do.
+2. **Deliver Impact.** Ship meaningful progress weekly that moves clients, products, and the business forward.
+3. **Communicate Transparently.** Work in the open. Share progress, questions, decisions, and blockers so teams move faster together.
+4. **Act With Ownership.** Take responsibility, proactively solve problems, and follow through until the result is achieved.
+5. **Learn and Share.** Grow every week and make your learning visible to strengthen the team and the AIO community.
+6. **Have Fun Building.** Bring energy, curiosity, and play into the work. Enjoy experimenting, collaborating, and creating.
+
 ## Business model
 
 | Channel | Offering | Pricing shape | Demand shape |
